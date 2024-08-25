@@ -13,6 +13,9 @@ export default function PlaylistHeader({
   playlist: SimplifiedPlaylistObject | null
   setCurrPlaylist: (id: string | null) => void
 }): React.JSX.Element {
+  if (playlist === undefined) {
+    return <></>
+  }
   const smallestImage = playlist?.images?.reduce((minImg, img) =>
     img.width !== null &&
     img.height !== null &&
