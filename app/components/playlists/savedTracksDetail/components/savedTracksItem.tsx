@@ -28,6 +28,7 @@ interface SavedTracksItemProps {
   setTrackUrl: (url: string) => void
   playlistsMutate: () => Promise<PlaylistResponse[] | undefined>
   toast: any
+  playlistsCompleted: boolean
   setDistinctTracksInPlaylist: React.Dispatch<
     React.SetStateAction<TrackPlaylists>
   >
@@ -43,6 +44,7 @@ export default function SavedTracksItem({
   playlists,
   toast,
   playlistsMutate,
+  playlistsCompleted,
   setDistinctTracksInPlaylist,
   audioFeatures,
 }: SavedTracksItemProps): JSX.Element {
@@ -229,7 +231,7 @@ export default function SavedTracksItem({
       </div>
       <div className="col-span-6 lg:col-span-4 flex justify-start items-center gap-3">
         <div className="flex shrink-0 h-full w-12">
-          {Object.keys(distinctTracksInPlaylist).length === 0 ||
+          {!playlistsCompleted ||
           (track?.track?.id in distinctTracksInPlaylist &&
             distinctTracksInPlaylist[track?.track?.id].length !== 0) ? (
             <Image
