@@ -26,6 +26,7 @@ interface SavedTracksDetailProps {
   playlistsMutate: () => Promise<PlaylistResponse[] | undefined>
   trackUrl: string
   setTrackUrl: (url: string) => void
+  playlistsCompleted: boolean
   setDistinctTracksInPlaylist: React.Dispatch<
     React.SetStateAction<TrackPlaylists>
   >
@@ -39,6 +40,7 @@ export default function SavedTracksDetail({
   playlistsMutate,
   trackUrl,
   setTrackUrl,
+  playlistsCompleted,
   setDistinctTracksInPlaylist,
   audioFeatures,
 }: SavedTracksDetailProps): JSX.Element {
@@ -106,6 +108,7 @@ export default function SavedTracksDetail({
         distinctTracksInPlaylist={distinctTracksInPlaylist}
         trackUrl={trackUrl}
         setTrackUrl={setTrackUrl}
+        playlistsCompleted={playlistsCompleted}
         playlists={playlists}
         toast={toast}
         playlistsMutate={playlistsMutate}

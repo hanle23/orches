@@ -325,6 +325,7 @@ export default function Page(): React.JSX.Element {
             }}
             playlists={distinctPlaylist}
             distinctTracksInPlaylist={distinctTracksInPlaylist}
+            playlistsCompleted={playlistsCompleted}
             playlistsMutate={playlistsMutate}
             trackUrl={trackUrl}
             setTrackUrl={setTrackUrl}
