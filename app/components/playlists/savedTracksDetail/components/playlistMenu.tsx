@@ -34,7 +34,6 @@ export default function PlaylistMenu({
   audioFeatures: Record<string, number | AudioFeaturesObject>
 }): JSX.Element {
   const [searchInput, setSearchInput] = useState<string>('')
-  console.log(playlists)
   const [filteredPlaylists, setFilteredPlaylists] = useState(playlists)
   useEffect(() => {
     if (searchInput !== '') {
@@ -152,6 +151,7 @@ export default function PlaylistMenu({
               </div>
             )
           })}
+          )
         </div>
       </div>
       <div className="flex h-[3rem] justify-end items-center px-5 gap-4">

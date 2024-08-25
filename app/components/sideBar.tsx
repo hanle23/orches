@@ -16,26 +16,30 @@ export default function SideBar({
   setCurrPlaylist: (id: string) => void
   playlists: PlaylistSummary[]
 }): React.JSX.Element {
-  return playlists.length !== 0 ? (
+  return (
     <div
       className={
         className ??
         'flex flex-col gap-6 w-fit h-full relative shrink-0 overflow-hidden'
       }
     >
-      <div className="flex flex-col rounded-lg bg-container h-full p-2.5 overflow-x-hidden overflow-y-auto shrink-0 min-w-36">
-        {playlists?.map((playlist: PlaylistSummary, index: number) => (
-          <PlaylistCard
-            key={playlist.id}
-            index={index}
-            playlist={playlist}
-            setCurrPlaylist={setCurrPlaylist}
-            currPlaylist={currPlaylist}
-          />
-        ))}
+      <div
+        className={`flex ${playlists.length === 0 ? 'items-center' : 'flex-col'} rounded-lg bg-container h-full p-2.5 overflow-x-hidden overflow-y-auto shrink-0 min-w-36`}
+      >
+        {playlists.length !== 0 ? (
+          playlists?.map((playlist: PlaylistSummary, index: number) => (
+            <PlaylistCard
+              key={playlist.id}
+              index={index}
+              playlist={playlist}
+              setCurrPlaylist={setCurrPlaylist}
+              currPlaylist={currPlaylist}
+            />
+          ))
+        ) : (
+          <p className="px-[8.75rem]">Loading . . .</p>
+        )}
       </div>
     </div>
-  ) : (
-    <></>
   )
 }

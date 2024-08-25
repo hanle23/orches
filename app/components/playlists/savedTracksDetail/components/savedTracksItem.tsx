@@ -261,6 +261,7 @@ export default function SavedTracksItem({
           <a
             href={track?.track?.external_urls?.spotify}
             target="_blank"
+            rel="noopener noreferrer"
             className="truncate"
           >
             {track?.track?.name !== undefined
@@ -303,8 +304,11 @@ export default function SavedTracksItem({
 
       <div className="col-span-2 flex items-center justify-between">
         <button
-          className="group-hover:opacity-100 opacity-0 hover:text-spotify-color"
+          className={`group-hover:opacity-100 opacity-0 ${playlists === undefined || playlists.length === 0 ? '' : 'hover:text-spotify-color'} `}
           onClick={(event) => {
+            if (playlists === undefined || playlists.length === 0) {
+              return
+            }
             handleAddToPlaylist(event, track?.track?.id)
           }}
         >
