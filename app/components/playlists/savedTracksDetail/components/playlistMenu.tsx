@@ -151,7 +151,6 @@ export default function PlaylistMenu({
               </div>
             )
           })}
-          )
         </div>
       </div>
       <div className="flex h-[3rem] justify-end items-center px-5 gap-4">
