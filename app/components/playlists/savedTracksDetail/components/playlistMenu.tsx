@@ -113,7 +113,7 @@ export default function PlaylistMenu({
                 <div className="flex gap-3 items-center w-fit h-full ">
                   <Image
                     src={
-                      playlist.images?.reduce((minImg, img) =>
+                      playlist?.images?.reduce((minImg, img) =>
                         img?.width !== null &&
                         img?.height !== null &&
                         minImg?.width !== null &&
