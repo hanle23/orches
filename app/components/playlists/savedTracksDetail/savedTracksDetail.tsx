@@ -59,11 +59,7 @@ export default function SavedTracksDetail({
     ) {
       return false
     }
-    if (savedTracksFunc?.savedTracks?.[0]?.total > index) {
-      return false
-    }
-
-    return true
+    return savedTracksFunc?.savedTracks?.[0]?.total < index
   }
 
   const loadMoreItems = async (

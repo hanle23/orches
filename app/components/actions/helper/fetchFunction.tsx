@@ -1,12 +1,11 @@
-import type { Fetcher } from 'swr'
 export interface FetcherArgs {
   url: string
   token: string
-  body?: Record<string, unknown>
+  body?: string
   method?: string
 }
 
-const fetcher: Fetcher<Record<string, unknown>, FetcherArgs> = async ({
+const fetcher: <T = any>(...args: [FetcherArgs]) => Promise<T> = async ({
   url,
   token,
   body,

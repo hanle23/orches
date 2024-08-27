@@ -11,6 +11,9 @@ export default async function fetchAudioFeatures(
   if (session === null) {
     return { audio_features: [] }
   }
+  if (tracksToFetch.length > 100) {
+    throw new Error('Track limit exceeded (100 tracks)')
+  }
   const tracksString = 'ids=' + tracksToFetch.join(',')
   const url = `https://api.spotify.com/v1/audio-features?${tracksString}`
   const response = await fetchFunction({

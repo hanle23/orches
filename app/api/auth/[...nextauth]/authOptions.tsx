@@ -60,7 +60,7 @@ export const authOptions: AuthOptions = {
 
       return updatedToken
     },
-    async session({ session, token }: { session: Session; token: JWT }) {
+    session({ session, token }: { session: Session; token: JWT }) {
       const user: AuthUser = {
         ...session.user,
         access_token: token.access_token as string,

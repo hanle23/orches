@@ -17,7 +17,7 @@ import deletePlaylistItem from '../../actions/deletePlaylistItem'
 import addPlaylistItem from '../../actions/addPlaylistItem'
 import updateDistinctTracks from '@/app/components/actions/helper/updateDistinctTracks'
 import IsExistInPlaylist from './actions/isExistInPlaylist'
-import type { ToasterProps } from 'react-hot-toast'
+import type { toast } from 'react-hot-toast'
 
 interface SavedTracksItemProps {
   index: number
@@ -28,7 +28,7 @@ interface SavedTracksItemProps {
   playlists: PlaylistSummary[] | undefined
   setTrackUrl: (url: string) => void
   playlistsMutate: () => Promise<PlaylistResponse[] | undefined>
-  toast: ToasterProps
+  toast: typeof toast
   playlistsCompleted: boolean
   setDistinctTracksInPlaylist: React.Dispatch<
     React.SetStateAction<TrackPlaylists>
