@@ -274,7 +274,7 @@ export default function Page(): React.JSX.Element {
 
   useEffect(() => {
     if (!playlistsIsLoading && !playlistsIsValidating)
-      playlistsSetNextPage().catch((e: any) => {
+      playlistsSetNextPage().catch((e: string) => {
         console.log(e)
       })
   }, [playlistsSetNextPage, playlistsIsValidating, playlistsIsLoading])

@@ -31,7 +31,7 @@ export default function PlaylistDetail({
       currPlaylist.snapshot_id,
     )
     if (res.status === 200) {
-      playlistsMutate().catch((e: any) => {
+      playlistsMutate().catch((e: string) => {
         console.log(e)
       })
       toast.success(
@@ -39,7 +39,7 @@ export default function PlaylistDetail({
       )
     } else {
       toast.error(
-        `Unable to remove track from playlist, please try again later`,
+        'Unable to remove track from playlist, please try again later',
       )
     }
   }

@@ -5,26 +5,12 @@ export default function IsExistInPlaylist(
   playlistsToAdd: string[],
   playlistsToRemove: string[],
 ): boolean {
-  if (
-    !distinctTracksInPlaylist[currTrackId]?.includes(playlistId) &&
-    !playlistsToAdd.includes(playlistId)
-  ) {
-    return false
-  } else if (
-    distinctTracksInPlaylist[currTrackId]?.includes(playlistId) &&
-    !playlistsToRemove.includes(playlistId)
-  ) {
-    return true
-  } else if (
-    distinctTracksInPlaylist[currTrackId]?.includes(playlistId) &&
-    playlistsToRemove.includes(playlistId)
-  ) {
-    return false
-  } else if (
-    !distinctTracksInPlaylist[currTrackId]?.includes(playlistId) &&
-    playlistsToAdd.includes(playlistId)
-  ) {
-    return true
+  const trackInPlaylist =
+    distinctTracksInPlaylist[currTrackId]?.includes(playlistId)
+
+  if (trackInPlaylist) {
+    return !playlistsToRemove.includes(playlistId)
+  } else {
+    return playlistsToAdd.includes(playlistId)
   }
-  return false
 }

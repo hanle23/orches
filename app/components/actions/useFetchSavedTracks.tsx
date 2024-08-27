@@ -14,12 +14,12 @@ interface ExtendedSWRInfiniteResponse<SavedTracks, Error>
 }
 
 export default function useFetchSavedTracks(
-  fetcher: Fetcher<any, FetcherArgs>,
+  fetcher: Fetcher<SavedTracks, FetcherArgs>,
   accessToken: string | undefined,
-): ExtendedSWRInfiniteResponse<SavedTracks, any> {
+): ExtendedSWRInfiniteResponse<SavedTracks, Error> {
   const getKey = (
     pageIndex: number,
-    previousPageData: any,
+    previousPageData: SavedTracks,
   ): FetcherArgs | null => {
     if (accessToken === undefined || fetcher === null) return null
     if (previousPageData !== null && previousPageData?.next === null) {
