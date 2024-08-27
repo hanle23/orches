@@ -59,13 +59,15 @@ export function Header(): React.JSX.Element {
                 <Avatar
                   alt={session?.user?.name}
                   src={
-                    session?.user?.image?.reduce((prev, current) =>
-                      prev.height !== null &&
-                      current.height !== null &&
-                      prev.height < current.height
-                        ? prev
-                        : current,
-                    ).url ?? ''
+                    session?.user?.image?.length > 0
+                      ? session.user.image.reduce((prev, current) =>
+                          prev.height !== null &&
+                          current.height !== null &&
+                          prev.height < current.height
+                            ? prev
+                            : current,
+                        ).url
+                      : ''
                   }
                 />
               </IconButton>
@@ -100,13 +102,15 @@ export function Header(): React.JSX.Element {
                       <Avatar
                         alt={session?.user?.name}
                         src={
-                          session?.user?.image?.reduce((prev, current) =>
-                            prev.height !== null &&
-                            current.height !== null &&
-                            prev.height < current.height
-                              ? prev
-                              : current,
-                          ).url ?? ''
+                          session?.user?.image?.length > 0
+                            ? (session?.user?.image?.reduce((prev, current) =>
+                                prev.height !== null &&
+                                current.height !== null &&
+                                prev.height < current.height
+                                  ? prev
+                                  : current,
+                              ).url ?? '')
+                            : ''
                         }
                       />
                       <Typography className="font-semibold text-white">

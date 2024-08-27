@@ -10,6 +10,7 @@ import QRCode from 'qrcode'
 import copy from '@/public/svg/copy.svg'
 import type { AuthUser } from '@/app/types/spotify/auth'
 import CloseIcon from '@mui/icons-material/Close'
+import fallbackAvatar from '@/public/webp/fallbackAvatar.webp'
 export default function ProfilePage({
   open,
   onClose,
@@ -71,13 +72,15 @@ export default function ProfilePage({
                   height={300}
                   priority
                   src={
-                    session?.user?.image?.reduce((prev, current) =>
-                      prev.height !== null &&
-                      current.height !== null &&
-                      prev.height > current.height
-                        ? prev
-                        : current,
-                    ).url ?? ''
+                    session?.user?.image?.length > 0
+                      ? (session?.user?.image?.reduce((prev, current) =>
+                          prev.height !== null &&
+                          current.height !== null &&
+                          prev.height > current.height
+                            ? prev
+                            : current,
+                        ).url ?? '')
+                      : fallbackAvatar
                   }
                 />
               ) : (
