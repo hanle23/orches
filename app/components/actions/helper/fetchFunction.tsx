@@ -5,7 +5,7 @@ export interface FetcherArgs {
   method?: string
 }
 
-const fetcher: <T = any>(...args: [FetcherArgs]) => Promise<T> = async ({
+const fetcher: <T>(...args: [FetcherArgs]) => Promise<T> = async ({
   url,
   token,
   body,
