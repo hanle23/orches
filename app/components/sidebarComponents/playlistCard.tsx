@@ -48,12 +48,12 @@ export default function PlaylistCard({
       <Image
         src={smallestImage?.url}
         width={
-          smallestImage?.width == null || smallestImage?.width < 80
+          smallestImage?.width === null || smallestImage?.width < 80
             ? 80
             : smallestImage?.width
         }
         height={
-          smallestImage?.height == null || smallestImage?.height < 80
+          smallestImage?.height === null || smallestImage?.height < 80
             ? 80
             : smallestImage?.height
         }

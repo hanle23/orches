@@ -59,10 +59,7 @@ export default function SavedTracksDetail({
     ) {
       return false
     }
-    if (
-      savedTracksFunc?.savedTracks?.[0].total !== undefined &&
-      index < savedTracksFunc?.savedTracks?.[0].total
-    ) {
+    if (savedTracksFunc?.savedTracks?.[0]?.total > index) {
       return false
     }
 

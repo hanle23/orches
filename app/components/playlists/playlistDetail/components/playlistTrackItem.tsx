@@ -52,6 +52,7 @@ export default function PlaylistTrackItem({
           <a
             href={track?.track?.external_urls?.spotify}
             target="_blank"
+            rel="noopener noreferrer"
             className="truncate"
           >
             {track?.track?.name}
@@ -90,7 +91,7 @@ export default function PlaylistTrackItem({
 
       <div className="col-span-2 flex items-center justify-around">
         <button
-          className={`group-hover:block hidden truncate text-sm hover:text-danger-color`}
+          className="group-hover:block hidden truncate text-sm hover:text-danger-color"
           onClick={() => {
             handleRemoveTrack(track?.track?.uri).catch((e) => {
               console.log(e)
@@ -105,9 +106,7 @@ export default function PlaylistTrackItem({
             .toFixed(0)
             .padStart(2, '0')}
         </div>
-        <button
-          className={`group-hover:block hidden truncate text-sm h-fit w-fit hover:text-spotify-color`}
-        >
+        <button className="group-hover:block hidden truncate text-sm h-fit w-fit hover:text-spotify-color">
           <MoreHorizIcon />
         </button>
       </div>

@@ -2,11 +2,11 @@ import type { Fetcher } from 'swr'
 export interface FetcherArgs {
   url: string
   token: string
-  body?: any
+  body?: Record<string, unknown>
   method?: string
 }
 
-const fetcher: Fetcher<any, FetcherArgs> = async ({
+const fetcher: Fetcher<Record<string, unknown>, FetcherArgs> = async ({
   url,
   token,
   body,
@@ -25,7 +25,7 @@ const fetcher: Fetcher<any, FetcherArgs> = async ({
     const retryAfterMs =
       retryAfter !== null ? parseInt(retryAfter, 10) * 1000 : 1000
     await new Promise((resolve) => setTimeout(resolve, retryAfterMs))
-    return fetcher({ url, token }) // Retry the request
+    return await fetcher({ url, token })
   }
 
   if (!response.ok) {

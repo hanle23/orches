@@ -17,6 +17,7 @@ import deletePlaylistItem from '../../actions/deletePlaylistItem'
 import addPlaylistItem from '../../actions/addPlaylistItem'
 import updateDistinctTracks from '@/app/components/actions/helper/updateDistinctTracks'
 import IsExistInPlaylist from './actions/isExistInPlaylist'
+import type { ToasterProps } from 'react-hot-toast'
 
 interface SavedTracksItemProps {
   index: number
@@ -27,7 +28,7 @@ interface SavedTracksItemProps {
   playlists: PlaylistSummary[] | undefined
   setTrackUrl: (url: string) => void
   playlistsMutate: () => Promise<PlaylistResponse[] | undefined>
-  toast: any
+  toast: ToasterProps
   playlistsCompleted: boolean
   setDistinctTracksInPlaylist: React.Dispatch<
     React.SetStateAction<TrackPlaylists>
@@ -96,11 +97,11 @@ export default function SavedTracksItem({
             )
           } else {
             toast.error(
-              `Unable to remove track from playlist, please try again later`,
+              'Unable to remove track from playlist, please try again later',
             )
           }
         })
-        .catch((e: any) => {
+        .catch((e: string) => {
           console.log(e)
         })
     }
@@ -118,11 +119,11 @@ export default function SavedTracksItem({
             )
           } else {
             toast.error(
-              `Unable to add track to playlist, please try again later`,
+              'Unable to add track to playlist, please try again later',
             )
           }
         })
-        .catch((e: any) => {
+        .catch((e: string) => {
           console.log(e)
         })
     }
@@ -135,7 +136,7 @@ export default function SavedTracksItem({
         distinctTracksInPlaylist,
         setDistinctTracksInPlaylist,
       )
-      await playlistsMutate().catch((e: any) => {
+      await playlistsMutate().catch((e: string) => {
         setDistinctTracksInPlaylist(oldState)
         console.log(e)
       })
