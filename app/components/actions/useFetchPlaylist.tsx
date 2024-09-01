@@ -14,12 +14,12 @@ interface ExtendedSWRInfiniteResponse<PlaylistResponse, Error>
 }
 
 export default function useFetchPlaylist(
-  fetcher: Fetcher<any, FetcherArgs>,
+  fetcher: Fetcher<PlaylistResponse, FetcherArgs>,
   accessToken: string | undefined,
-): ExtendedSWRInfiniteResponse<PlaylistResponse, any> {
+): ExtendedSWRInfiniteResponse<PlaylistResponse, Error> {
   const getKey = (
     pageIndex: number,
-    previousPageData: any,
+    previousPageData: PlaylistResponse,
   ): FetcherArgs | null => {
     if (accessToken === undefined || fetcher === null) return null
     if (previousPageData !== null && previousPageData?.next === null) {

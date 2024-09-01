@@ -1,6 +1,7 @@
 import type { ImageObject } from './general'
+
 export interface AuthUser {
-  name: string
+  name?: string
   email: string
   image: ImageObject[]
   access_token: string
