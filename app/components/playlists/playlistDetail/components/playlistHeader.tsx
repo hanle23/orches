@@ -1,5 +1,3 @@
-'use client'
-import React from 'react'
 import Image from 'next/image'
 import ExternalLink from '@/public/svg/externalLink.svg'
 import LeftArrowNotail from '@/public/svg/leftArrowNotail.svg'
@@ -12,7 +10,7 @@ export default function PlaylistHeader({
 }: {
   playlist: SimplifiedPlaylistObject | null
   setCurrPlaylist: (id: string | null) => void
-}): React.JSX.Element {
+}): JSX.Element {
   if (playlist === undefined) {
     return <></>
   }
