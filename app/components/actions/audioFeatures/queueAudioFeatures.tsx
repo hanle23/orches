@@ -1,4 +1,3 @@
-'use client'
 import type { AudioFeaturesObject } from '@/app/types/spotify/audioFeatures'
 import fetchAudioFeatures from './fetchAudioFeatures'
 
