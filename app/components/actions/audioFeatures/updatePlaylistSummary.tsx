@@ -13,10 +13,7 @@ export default function updatePlaylistSummary(
 ): PlaylistSummary[] | null {
   const notFullfilledRequirements = Object.keys(distinctTracksInPlaylist).some(
     (trackId: string) => {
-      if (!(trackId in audioFeatures)) {
-        return true
-      }
-      return false
+      return !(trackId in audioFeatures)
     },
   )
   if (notFullfilledRequirements) {
