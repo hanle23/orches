@@ -11,15 +11,15 @@ export default function updatePlaylistSummary(
   distinctPlaylist: PlaylistSummary[],
   playlist?: SimplifiedPlaylistObject,
 ): PlaylistSummary[] | null {
-  let fullfilledRequirements = true
-  Object.keys(distinctTracksInPlaylist).some((trackId: string) => {
-    if (!(trackId in audioFeatures)) {
-      fullfilledRequirements = false
-      return true
-    }
-    return false
-  })
-  if (!fullfilledRequirements) {
+  const notFullfilledRequirements = Object.keys(distinctTracksInPlaylist).some(
+    (trackId: string) => {
+      if (!(trackId in audioFeatures)) {
+        return true
+      }
+      return false
+    },
+  )
+  if (notFullfilledRequirements) {
     return null
   }
   let newPlaylistSummary
