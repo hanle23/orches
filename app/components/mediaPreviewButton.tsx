@@ -38,7 +38,7 @@ export default function MediaPreviewButton({
 
   return (
     <button
-      tabIndex={1}
+      tabIndex={0}
       onKeyDown={handlePlayPause}
       onClick={handleSetTrack}
       className={`${className ?? ''} hidden hover:text-spotify-color`}
