@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useCallback } from 'react'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import StopIcon from '@mui/icons-material/Stop'
 
@@ -14,11 +14,33 @@ export default function MediaPreviewButton({
   trackUrl: string
   setTrackUrl: (url: string) => void
 }): JSX.Element {
+  const handleSetTrack = useCallback(() => {
+    if (trackUrl === currTrackUrl) {
+      setTrackUrl('')
+    } else {
+      setTrackUrl(trackUrl)
+    }
+  }, [trackUrl, currTrackUrl, setTrackUrl])
+
+  const handlePlayPause = useCallback(
+    (e: React.KeyboardEvent<HTMLButtonElement>) => {
+      if (e.key !== '') {
+        return
+      }
+      if (trackUrl === currTrackUrl) {
+        setTrackUrl('')
+      } else {
+        setTrackUrl(trackUrl)
+      }
+    },
+    [trackUrl, currTrackUrl, setTrackUrl],
+  )
+
   return (
     <button
-      onClick={() => {
-        trackUrl === currTrackUrl ? setTrackUrl('') : setTrackUrl(currTrackUrl)
-      }}
+      tabIndex={1}
+      onKeyDown={handlePlayPause}
+      onClick={handleSetTrack}
       className={`${className ?? ''} hidden hover:text-spotify-color`}
     >
       {trackUrl === currTrackUrl ? <StopIcon /> : <PlayArrowIcon />}
