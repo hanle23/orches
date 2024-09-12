@@ -7,7 +7,7 @@ export default function Login(): React.JSX.Element {
     <div className="flex justify-center items-center h-full w-full bg-spotify-item-background">
       <div className="flex flex-col shrink-0 h-fit w-fit px-5 py-5 gap-5 text-center  bg-container rounded-md overflow-hidden">
         <h1 className="font-semibold text-3xl text-white truncate">
-          Log in to Orches
+          Log in to Orches (Invite Only)
         </h1>
         <button
           className="flex rounded-full border-spotify-subtext border gap-5 px-9 py-3"
@@ -28,6 +28,15 @@ export default function Login(): React.JSX.Element {
             Continue with Spotify
           </p>
         </button>
+        <p className="text-white text-sm">
+          The application is currently in Beta testing
+        </p>
+        <p className="text-white text-sm">
+          {"If you're interested to try out or contribute, please contact:"}
+        </p>
+        <a href="mailto:hanle.cs23@gmail.com" className="text-white text-sm">
+          hanle.cs23@gmail.com
+        </a>
       </div>
     </div>
   )
