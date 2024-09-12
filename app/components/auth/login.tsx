@@ -28,8 +28,12 @@ export default function Login(): React.JSX.Element {
             Continue with Spotify
           </p>
         </button>
-        <p className="text-white text-sm">{`The application is currently in Beta testing`}</p>
-        <p className="text-white text-sm">{`If you're interested to try out or contribute, please contact:`}</p>
+        <p className="text-white text-sm">
+          The application is currently in Beta testing
+        </p>
+        <p className="text-white text-sm">
+          {"If you're interested to try out or contribute, please contact:"}
+        </p>
         <a href="mailto:hanle.cs23@gmail.com" className="text-white text-sm">
           hanle.cs23@gmail.com
         </a>
