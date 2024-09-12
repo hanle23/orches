@@ -3,6 +3,7 @@ import fetchAudioFeatures from './fetchAudioFeatures'
 
 export default async function queueAudioFeatures(
   audioFeatures: Record<string, number | AudioFeaturesObject>,
+  accessToken: string,
 ): Promise<{
   data: Record<string, number | AudioFeaturesObject>
   total: number
@@ -17,7 +18,10 @@ export default async function queueAudioFeatures(
     }
   })
   if (tracksToFetch.length > 0) {
-    const fetchedAudioFeatures = await fetchAudioFeatures(tracksToFetch)
+    const fetchedAudioFeatures = await fetchAudioFeatures(
+      tracksToFetch,
+      accessToken,
+    )
     if (fetchedAudioFeatures.audio_features.length === 0) {
       return null
     }
