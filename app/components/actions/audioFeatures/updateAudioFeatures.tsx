@@ -9,13 +9,11 @@ export default async function updateAudioFeatures(
   currPageIndex?: number,
   totalPage?: number,
 ): Promise<Record<string, number | AudioFeaturesObject> | undefined> {
-  console.log(accessToken)
   if (accessToken === undefined || accessToken === '') {
-    return
+    return audioFeatures
   }
   try {
     const newAudioFeatures = audioFeatures
-
     trackArray.forEach((track) => {
       const trackId = track?.track?.id
       if (trackId === undefined || trackId === null) {
