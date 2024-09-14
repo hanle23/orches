@@ -5,7 +5,9 @@ import { throttle } from 'lodash'
 
 const throttledFetchAudioFeatures = async (
   audioFeatures: Record<string, number | AudioFeaturesObject>,
+  accessToken: string,
   currPageIndex?: number,
+
   totalPage?: number,
 ): Promise<Record<string, number | AudioFeaturesObject> | null> => {
   const fetchData = async (): Promise<Record<
@@ -25,7 +27,7 @@ const throttledFetchAudioFeatures = async (
       }
       let current = 0
       while (current < numOfObject) {
-        const res = await queueAudioFeatures(audioFeatures)
+        const res = await queueAudioFeatures(audioFeatures, accessToken)
         if (res === null) {
           break
         }

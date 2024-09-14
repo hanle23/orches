@@ -26,7 +26,7 @@ export default function SideBar({
       <div
         className={`flex ${playlists.length === 0 ? 'items-center' : 'flex-col'} rounded-lg bg-container h-full p-2.5 overflow-x-hidden overflow-y-auto shrink-0 min-w-36`}
       >
-        {playlists.length !== 0 ? (
+        {playlists.length > 0 ? (
           playlists?.map((playlist: PlaylistSummary, index: number) => (
             <PlaylistCard
               key={playlist.id}
