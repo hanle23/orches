@@ -25,6 +25,7 @@ import { Toaster } from 'react-hot-toast'
 
 export default function Page(): React.JSX.Element {
   const { data: session } = useSession()
+
   const [playlists, setPlaylists] = useState<PlaylistResponse[]>([])
   const [playlistsCompleted, setPlaylistsCompleted] = useState<boolean>(false)
   const [savedTracks, setSavedTracks] = useState<SavedTracks[]>([])
@@ -109,7 +110,11 @@ export default function Page(): React.JSX.Element {
     const savedTrackItems = filteredTracks.flatMap(
       (savedTrack) => savedTrack.items,
     )
-    updateAudioFeatures(savedTrackItems, audioFeaturesRef.current)
+    updateAudioFeatures(
+      savedTrackItems,
+      audioFeaturesRef.current,
+      session?.user?.access_token,
+    )
       .then((value) => {
         if (value === undefined) {
           return
@@ -140,6 +145,7 @@ export default function Page(): React.JSX.Element {
     savedTracksCompleted,
     distinctPlaylist,
     distinctTracksInPlaylist,
+    session?.user?.access_token,
   ])
 
   useEffect(() => {
@@ -186,6 +192,7 @@ export default function Page(): React.JSX.Element {
                   const updatedAudioFeatures = await updateAudioFeatures(
                     validTracks,
                     audioFeaturesRef.current,
+                    session?.user?.access_token,
                     index,
                     playlistResponse.items.length - 1,
                   )

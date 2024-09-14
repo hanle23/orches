@@ -290,9 +290,14 @@ export default function SavedTracksItem({
       </div>
 
       <div className="col-span-3">
-        <p className="truncate items-center text-spotify-subtext text-sm text-left h-full w-full flex">
+        <a
+          className="truncate items-center text-spotify-subtext text-sm text-left h-full w-full flex hover:underline"
+          href={track?.track?.album?.external_urls?.spotify}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {track?.track?.album.name}
-        </p>
+        </a>
       </div>
 
       <div className="hidden lg:flex lg:col-span-2">

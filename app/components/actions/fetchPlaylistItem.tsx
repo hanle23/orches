@@ -1,4 +1,3 @@
-'use server'
 import fetcher from './helper/fetchFunction'
 import type { PlaylistItemResponse } from '@/app/types/spotify/playlist'
 import { LIMIT } from '@/constants/spotify/playlist'
