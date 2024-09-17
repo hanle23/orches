@@ -62,7 +62,6 @@ export default function Page(): React.JSX.Element {
   } = useFetchPlaylist(fetcher, session?.user?.access_token)
 
   useEffect(() => {
-    console.log('Triggered')
     if (trackUrl === '') {
       trackAudio?.current?.pause()
       return
