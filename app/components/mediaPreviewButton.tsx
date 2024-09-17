@@ -18,7 +18,7 @@ export default function MediaPreviewButton({
     if (trackUrl === currTrackUrl) {
       setTrackUrl('')
     } else {
-      setTrackUrl(trackUrl)
+      setTrackUrl(currTrackUrl)
     }
   }, [trackUrl, currTrackUrl, setTrackUrl])
 
@@ -30,7 +30,7 @@ export default function MediaPreviewButton({
       if (trackUrl === currTrackUrl) {
         setTrackUrl('')
       } else {
-        setTrackUrl(trackUrl)
+        setTrackUrl(currTrackUrl)
       }
     },
     [trackUrl, currTrackUrl, setTrackUrl],
