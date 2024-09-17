@@ -24,7 +24,7 @@ const scopes = [
 ]
 
 spotifyProfile.authorization = {
-  url: 'https://accounts.spotify.com/authorize',
+  url: 'https://accounts.spotify.com/authorize?show_dialog=true',
   params: {
     scope: scopes.join(' '),
   },
