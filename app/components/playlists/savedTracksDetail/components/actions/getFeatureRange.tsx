@@ -24,15 +24,12 @@ export default function getFeatureRange(
   )
   audioFeatureInterval.sort(sortFunction)
   const merged: number[][] = []
-  for (let index = 0; index < audioFeatureInterval.length; index++) {
-    if (
-      merged.length === 0 ||
-      merged[merged.length - 1][1] < audioFeatureInterval[index][0]
-    ) {
-      merged.push(audioFeatureInterval[index])
+  for (const interval of audioFeatureInterval) {
+    if (merged.length === 0 || merged[merged.length - 1][1] < interval[0]) {
+      merged.push(interval)
     } else {
       merged[merged.length - 1][1] = Math.max(
-        audioFeatureInterval[index][1],
+        interval[1],
         merged[merged.length - 1][1],
       )
     }
